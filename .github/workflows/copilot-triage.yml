@@ -1,4 +1,4 @@
-name: AI Bug Triage
+name: AI Bug Triage + Copilot Assignment
 
 on:
   issues:
@@ -27,3 +27,14 @@ jobs:
           ai_review_label: 'bug'
           prompts_directory: './Prompts'
           labels_to_prompts_mapping: 'bug,bug-triage.prompt.yml'
+
+      - name: Assign Copilot coding agent
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              assignees: ['Copilot']
+            });

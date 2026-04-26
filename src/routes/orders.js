@@ -8,8 +8,6 @@ router.get('/:id/status', async (req, res) => {
     const { id } = req.params;
     const userId = req.headers['x-user-id'];
 
-    // BUG: guest users (no userId header) cause unhandled null reference
-    // when orderService tries to log the request, crashing with 500
     const status = await getOrderStatus(id, userId);
     res.json({ orderId: id, status });
   } catch (err) {

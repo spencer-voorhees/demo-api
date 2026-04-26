@@ -4,8 +4,7 @@ const orders = {
 };
 
 async function getOrderStatus(orderId, userId) {
-  // BUG: userId.toString() throws if userId is undefined (guest checkout)
-  const requestLog = `User ${userId.toString()} requested order ${orderId}`;
+  const requestLog = `User ${userId ?? 'guest'} requested order ${orderId}`;
   console.log(requestLog);
 
   const order = orders[orderId];

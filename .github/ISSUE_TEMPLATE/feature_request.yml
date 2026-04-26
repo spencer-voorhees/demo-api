@@ -1,0 +1,31 @@
+name: Feature Request
+description: Request a new feature or enhancement
+labels: ["feature"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: What would you like?
+      placeholder: e.g. Add export to CSV on the orders page
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional details / mockups
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true

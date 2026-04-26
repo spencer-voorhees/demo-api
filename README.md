@@ -1,2 +1,3 @@
 # demo-api
-Demo client — API (backend, auth, integrations)
+
+Order status REST API for the demo project.
